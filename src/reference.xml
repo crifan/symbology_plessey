@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<bibliography xmlns="http://docbook.org/ns/docbook"
+    xml:id="reference"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<bibliomixed id="ref.wiki_plessey_code">
+  <bibliosource><ulink url="http://en.wikipedia.org/wiki/Plessey_Code">Plessey Code</ulink></bibliosource>
+  <author>wiki</author>
+</bibliomixed>
+
+<bibliomixed id="ref.msi_symbology">
+  <bibliosource><ulink url="http://www.barcodeisland.com/msi.phtml">MSI Symbology</ulink></bibliosource>
+  <author>barcodeisland</author>
+</bibliomixed>
+
+<bibliomixed id="ref.msi_plessey_barcode">
+  <bibliosource><ulink url="http://generator.onbarcode.com/online-msi-plessey-barcode-generator.aspx">Free Online MSI Plessey Barcodes Generator</ulink></bibliosource>
+  <author>onbarcode</author>
+</bibliomixed>
+
+<bibliomixed id="ref.linear_barcode_msi">
+  <bibliosource><ulink url="http://www.3sindustries.com/barcodes/msi-plessey.php">Linear Barcode Symbology : MSI Plessey</ulink></bibliosource>
+  <author>3sindustries</author>
+</bibliomixed>
+
+<bibliomixed id="ref.msi_barcode">
+  <bibliosource><ulink url="http://www.technoriversoft.com/MSIBarcode.html">MSI Barcode (Modified Plessey Barcode)</ulink></bibliosource>
+  <author>technoriversoft</author>
+</bibliomixed>
+
+<bibliomixed id="ref.wiki_plessey">
+  <bibliosource><ulink url="http://en.wikipedia.org/wiki/Plessey">Plessey</ulink></bibliosource>
+  <author>wiki</author>
+</bibliomixed>
+
+<bibliomixed id="ref.about_plessey_barcode">
+  <bibliosource><ulink url="http://www.adams1.com/plessy.html">About Plessey Barcode</ulink></bibliosource>
+  <author>Adams Communications</author>
+</bibliomixed>
+
+<bibliomixed id="ref.wiki_luhn_algo">
+  <bibliosource><ulink url="http://en.wikipedia.org/wiki/Luhn_algorithm">Luhn algorithm</ulink></bibliosource>
+  <author>wiki</author>
+</bibliomixed>
+
+</bibliography>

@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<!DOCTYPE chapter
+[
+
+<!ENTITY % crl_ent PUBLIC "crl.ent" 'http://www.crifan.com/files/res/docbook/entity/crl.ent'>
+%crl_ent;
+
+]>
+
+<chapter xmlns="http://docbook.org/ns/docbook"
+    xml:id="ch01_plessey"
+    xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<title>Plessey</title>
+<abstract></abstract>
+
+<sect1><title>What is Plessey</title>
+    <para>Plessey barcode/code is a 1D linear barcode symbology, based on Pulse Wide Modulation.</para>
+    <para>Plessey is originally developed in 1971 by The Plessey Company plc, a British-based company. So, sometimes is called “UK Plessey”.</para>
+    <para>So,</para>
+    <para><emphasis>Plessey = UK Plessey</emphasis></para>
+</sect1>
+
+<sect1><title>Plessey Barcode Format</title>
+    <sect2><title>An Example</title>
+        <figure id="fg.plessey_barcode_format"><title>Plessey Barcode Format Example</title>
+            <mediaobject>
+                <imageobject role="html">
+                    <imagedata fileref="images/plessey_barcode_format.png" align="left" scalefit="0" width="100%" />
+                </imageobject>
+                <imageobject role="fo">
+                    <imagedata fileref="images/plessey_barcode_format.png" align="center" scalefit="1" width="100%" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <figure id="fg.plessey_barcode_01234567890"><title>Plessey Barcode “01234567890” Example</title>
+            <mediaobject>
+                <imageobject role="html">
+                    <imagedata fileref="images/plessey_barcode_01234567890.jpg" align="left" scalefit="0" width="100%" />
+                </imageobject>
+                <imageobject role="fo">
+                    <imagedata fileref="images/plessey_barcode_01234567890.jpg" align="center" scalefit="1" width="100%" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+    </sect2>
+    
+    <sect2><title>How to represent bits/digits/characters</title>
+        <para>Plessey’s barcode pattern is so simple that, with casual familiarity with the code, you can actually read the bar codes with your eyes.</para>
+        <para>Plessey basic code rule is:</para>
+        <itemizedlist>
+            <listitem>Wide bar following by narrow space is a "1" bit. </listitem>
+            <listitem>Narrow bar followed by wide space is a "0" bit. </listitem>
+        </itemizedlist>
+        <para>And each digit number is represented by four bit.</para>
+        <para>If you only calculate the bar (horizontal black line), the wide bar means ‘1’ and the narrow bar means ‘0’.</para>
+        <para>So, the digit ‘1’:</para>
+        <itemizedlist>
+            <listitem>BCD (Binary- Coded Decimal) is 0001b </listitem>
+            <listitem>reversed BCD is 1000b</listitem>
+            <listitem>wide bar + narrow bar + narrow bar + narrow bar</listitem>
+        </itemizedlist>
+    </sect2>
+    
+    <sect2><title>Barcode Format</title>
+        <table id="tbl.plessey_barcode_format"><title>Plessey Barcode Format</title>
+            <tgroup cols="5">
+                <colspec colnum="1" colname="col1" colwidth="1*" />
+                <colspec colnum="2" colname="col2" colwidth="2*" />
+                <colspec colnum="3" colname="col3" colwidth="1*" />
+                <colspec colnum="4" colname="col4" colwidth="2*" />
+                <colspec colnum="5" colname="col5" colwidth="1*" />
+                
+                <thead>
+                    <row><entry>start character</entry><entry>Any number of labels/characters/digits</entry><entry>Checksum / check  digit / code</entry><entry>A stop / termination character / block / pitch bar</entry><entry>the reverse start code</entry></row>
+                </thead>
+                
+                <tbody>
+                    <row><entry><emphasis>4it</emphasis> =<emphasis>1101</emphasis></entry><entry>XXX...(eg, 012345...)</entry><entry><emphasis>8bit</emphasis>(eg. 0110 0111)</entry><entry><emphasis>1bit</emphasis>=X(eg, 1)</entry><entry><emphasis>4bit</emphasis>=<emphasis>0011</emphasis></entry></row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>In which:</para>
+        <itemizedlist>
+            <listitem>the forward start code 
+                <para>The forward start code is "1101". It defines the beginning of the encoded text.</para>
+            </listitem>
+            <listitem>the label / data digits  
+                <para>The characters of the text to encode are hexadecimal values encoded as reversed BCD.</para>
+                <table id="tbl.plessey_bits_enc"><title>Plessey Bits Encoding Rule</title>
+                    <tgroup cols="8">
+                        <colspec colnum="1" colname="col1" colwidth="1*" />
+                        <colspec colnum="2" colname="col2" colwidth="1*" />
+                        <colspec colnum="3" colname="col3" colwidth="1*" />
+                        <colspec colnum="4" colname="col4" colwidth="1*" />
+                        <colspec colnum="5" colname="col5" colwidth="1*" />
+                        <colspec colnum="6" colname="col5" colwidth="1*" />
+                        <colspec colnum="7" colname="col6" colwidth="1*" />
+                        <colspec colnum="8" colname="col7" colwidth="1*" />
+                        
+                        <thead>
+                            <row><entry>Value</entry><entry>Encoding</entry><entry>Value</entry><entry>Encoding</entry><entry>Value</entry><entry>Encoding</entry><entry>Value</entry><entry>Encoding</entry></row>
+                        </thead>
+                        
+                        <tbody>
+                            <row><entry>0</entry><entry>0000</entry><entry>4</entry><entry>0010</entry><entry>8</entry><entry>0001</entry><entry>C</entry><entry>0011</entry></row>
+                            <row><entry>1</entry><entry>1000</entry><entry>5</entry><entry>1010</entry><entry>9</entry><entry>1001</entry><entry>D</entry><entry>1011</entry></row>
+                            <row><entry>2</entry><entry>0100</entry><entry>6</entry><entry>0110</entry><entry>A</entry><entry>0101</entry><entry>E</entry><entry>0111</entry></row>
+                            <row><entry>3</entry><entry>1100</entry><entry>7</entry><entry>1110</entry><entry>B</entry><entry>1101</entry><entry>F</entry><entry>1111</entry></row>
+                        </tbody>
+                    </tgroup>
+                </table>
+            </listitem>
+            <listitem>the check code, for error detection 
+                <para>The check code for error detection and correction is as <emphasis>CRC</emphasis>, using polynomial division. </para>
+                <para>Is uses 2 characters, or 8 bits. </para>
+                <para>The generator polynomial is g(x) = x<superscript>8</superscript> + x<superscript>7</superscript> + x<superscript>6</superscript> + x<superscript>5</superscript> + x<superscript>3</superscript> + 1 with n=8, in binary "111101001".</para>
+            </listitem>
+            <listitem>the termination bar 
+                <para>The termination bar follows the CRC. It's a full pitch bar.</para>
+            </listitem>
+            <listitem>the reverse start code 
+                <para>The reverse start code, with the forward start code, are used to detect the direction of reading : from left to right or right to left.</para>
+                <para>It's encoded as a reversed "0011".</para>
+                <para>Reversed because the "0" is represented by a wide space and simple bar, and "1" as a simple space and wide bar.</para>
+            </listitem>
+        </itemizedlist>
+    </sect2>
+    
+</sect1>
+
+<sect1><title>Prons-and-Cons</title>
+    <para>The chief advantages are the relative ease of printing using the dot-matrix printers popular at the time of the code's introduction, and its somewhat higher density than the more common 2 of 5 and 3 of 9 codes.</para>
+</sect1>
+
+<sect1><title>Usage Filed</title>
+    <para>It is one of the first barcode symbology, and is still used in some rare libraries and for shelf tags in retail stores, in part as a solution to their internal requirement for stock
+    control. </para>
+    <para>The Plessey was first used in the early 1970s by J.Sainsbury to identify all of its products on supermarket shelves for its product restocking system.</para>
+</sect1>
+
+<sect1><title>Variations</title>
+    <para>However, Plessey does not encode numbers efficiently, and other characteristics of the language make it one of the most error-prone of all bar code languages. </para>
+    <para>Accordingly, the MSI company came out with a revised standard for the Plessey language (now called MSI Plessey, also known as Plessey modified) which employed a second check digit. This
+    improved the reliability of the language enough so that the MSI version of the code has continued in use in specialty applications. </para>
+    <para>Except the MSI, several other variations of Plessey is Anker Code by ADS Company, Telxon. It is difficult to have the specifications for them nowadays and thus hard to tell the differences between them (except for MSI), because is was mainly available as paper document and in discontinued since then.</para>
+</sect1>
+
+</chapter>
